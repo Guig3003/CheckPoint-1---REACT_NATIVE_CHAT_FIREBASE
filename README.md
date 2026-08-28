@@ -49,7 +49,7 @@ messages/{conversationId}/{messageId}
 |---|---|---|
 | E-mail/Senha | Google | Sim |
 | E-mail/Senha | Apple | Sim |
-| E-mail/Senha | E-mail/Senha | Nao |
+| E-mail/Senha | E-mail/Senha | sim |
 | Google | Google | Nao |
 | Apple | Apple | Nao |
 | Google | Apple | Nao |
