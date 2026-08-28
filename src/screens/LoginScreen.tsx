@@ -10,6 +10,7 @@ import { useAuth } from '../hooks/useAuth';
 WebBrowser.maybeCompleteAuthSession();
 
 const WEB_CLIENT_ID = '566827232226-mglqfg23k23mse2mf2jsitf3be87l3r2.apps.googleusercontent.com';
+const ANDROID_CLIENT_ID = '566827232226-7k9fliisvetj43vbc5u5khk6qi4gtoq2.apps.googleusercontent.com';
 const IOS_CLIENT_ID = '566827232226-8haqkmrpdbhc5c4vvvse40g8qslm4a3p.apps.googleusercontent.com';
 
 export const LoginScreen = (): React.JSX.Element => {
@@ -25,6 +26,7 @@ export const LoginScreen = (): React.JSX.Element => {
   const [, googleResponse, promptGoogle] = Google.useIdTokenAuthRequest({
     clientId: WEB_CLIENT_ID,
     webClientId: WEB_CLIENT_ID,
+    androidClientId: ANDROID_CLIENT_ID,
     iosClientId: IOS_CLIENT_ID,
   });
 
