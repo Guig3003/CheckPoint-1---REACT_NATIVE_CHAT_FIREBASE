@@ -1,0 +1,18 @@
+{
+  "project_info": {
+    "project_number": "566827232226",
+    "firebase_url": "https://cp-1-mobile-default-rtdb.firebaseio.com",
+    "project_id": "cp-1-mobile",
+    "storage_bucket": "cp-1-mobile.firebasestorage.app"
+  },
+  "client": [{
+    "client_info": {
+      "mobilesdk_app_id": "1:566827232226:android:198ad395b41d5a6d7367bb",
+      "android_client_info": { "package_name": "com.guig3003.cp1chatfirebase" }
+    },
+    "oauth_client": [{ "client_id": "566827232226-mglqfg23k23mse2mf2jsitf3be87l3r2.apps.googleusercontent.com", "client_type": 3 }],
+    "api_key": [{ "current_key": "AIzaSyB7DzfZ9BbrBNrlgZCOdA30svZJSDPR0Nw" }],
+    "services": { "appinvite_service": { "other_platform_oauth_client": [{ "client_id": "566827232226-mglqfg23k23mse2mf2jsitf3be87l3r2.apps.googleusercontent.com", "client_type": 3 }] } }
+  }],
+  "configuration_version": "1"
+}
