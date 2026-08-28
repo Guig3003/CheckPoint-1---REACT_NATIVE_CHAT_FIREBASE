@@ -1,0 +1,31 @@
+{
+  "rules": {
+    "users": {
+      ".read": "auth != null",
+      "$uid": {
+        ".write": "auth != null && auth.uid === $uid",
+        ".validate": "newData.hasChildren(['uid', 'name', 'email', 'provider']) && newData.child('uid').val() === auth.uid && newData.child('name').isString() && (newData.child('email').isString() || newData.child('email').val() === null) && ((auth.token.firebase.sign_in_provider === 'password' && newData.child('provider').val() === 'password') || (auth.token.firebase.sign_in_provider === 'google.com' && newData.child('provider').val() === 'google') || (auth.token.firebase.sign_in_provider === 'apple.com' && newData.child('provider').val() === 'apple'))"
+      }
+    },
+    "conversations": {
+      "$conversationId": {
+        ".read": "auth != null && (!data.exists() || data.child('participants/0').val() === auth.uid || data.child('participants/1').val() === auth.uid)",
+        ".write": "auth != null && !data.exists() && newData.exists() && (newData.child('participants/0').val() === auth.uid || newData.child('participants/1').val() === auth.uid) && (((root.child('users/' + newData.child('participants/0').val() + '/provider').val() === 'password') && (root.child('users/' + newData.child('participants/1').val() + '/provider').val() === 'google' || root.child('users/' + newData.child('participants/1').val() + '/provider').val() === 'apple')) || ((root.child('users/' + newData.child('participants/1').val() + '/provider').val() === 'password') && (root.child('users/' + newData.child('participants/0').val() + '/provider').val() === 'google' || root.child('users/' + newData.child('participants/0').val() + '/provider').val() === 'apple')))",
+        "participants": {
+          ".validate": "newData.hasChildren(['0', '1']) && newData.child('0').isString() && newData.child('1').isString() && newData.child('0').val() !== newData.child('1').val()",
+          "$index": { ".validate": "$index === '0' || $index === '1'" }
+        },
+        "createdAt": { ".validate": "newData.isNumber()" }
+      }
+    },
+    "messages": {
+      "$conversationId": {
+        ".read": "auth != null && (root.child('conversations/' + $conversationId + '/participants/0').val() === auth.uid || root.child('conversations/' + $conversationId + '/participants/1').val() === auth.uid)",
+        "$messageId": {
+          ".write": "auth != null && !data.exists() && newData.child('senderId').val() === auth.uid && ((root.child('conversations/' + $conversationId + '/participants/0').val() === auth.uid && newData.child('receiverId').val() === root.child('conversations/' + $conversationId + '/participants/1').val()) || (root.child('conversations/' + $conversationId + '/participants/1').val() === auth.uid && newData.child('receiverId').val() === root.child('conversations/' + $conversationId + '/participants/0').val()))",
+          ".validate": "newData.hasChildren(['senderId', 'receiverId', 'text', 'createdAt']) && newData.child('senderId').isString() && newData.child('receiverId').isString() && newData.child('senderId').val() !== newData.child('receiverId').val() && newData.child('text').isString() && newData.child('text').val().length > 0 && newData.child('text').val().length <= 1000 && newData.child('createdAt').isNumber()"
+        }
+      }
+    }
+  }
+}

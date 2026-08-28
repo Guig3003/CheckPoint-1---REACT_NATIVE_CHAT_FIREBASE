@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "CP1 Chat Firebase",
+    "slug": "cp1-chat-firebase",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "cp1chatfirebase",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.guig3003.cp1chatfirebase",
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "usesAppleSignIn": true
+    },
+    "android": {
+      "package": "com.guig3003.cp1chatfirebase",
+      "googleServicesFile": "./google-services.json"
+    },
+    "web": { "bundler": "metro" },
+    "plugins": ["expo-apple-authentication"]
+  }
+}
