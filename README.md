@@ -1,25 +1,25 @@
-# CP1 — React Native Chat com Firebase
+# CP1 - React Native Chat com Firebase
 
 Aplicativo de chat **1 para 1** desenvolvido em React Native + TypeScript com Expo SDK 55, Firebase Authentication e Firebase Realtime Database.
 
 ## Integrante
 
-- **RM554606 — Guilherme Gomes Oliveira**
+- **RM554606 - Guilherme Gomes Oliveira**
 
 ## Requisitos implementados
 
 - React Native + Expo SDK 55 + TypeScript estrito.
 - Firebase Authentication com E-mail/Senha, Google e Apple.
-- Firebase Realtime Database (não utiliza Cloud Firestore).
+- Firebase Realtime Database (nao utiliza Cloud Firestore).
 - Chat exclusivamente entre duas pessoas.
-- Regra de compatibilidade: E-mail/Senha ↔ Google ou Apple.
-- Bloqueio de E-mail ↔ E-mail, Google ↔ Google, Apple ↔ Apple e Google ↔ Apple.
-- Atualização de mensagens em tempo real usando listeners `onValue` com remoção correta.
+- Regra de compatibilidade: E-mail/Senha <-> Google ou Apple.
+- Bloqueio de E-mail <-> E-mail, Google <-> Google, Apple <-> Apple e Google <-> Apple.
+- Atualizacao de mensagens em tempo real usando listeners `onValue` com remocao correta.
 - Loading, erros, estado sem contatos e estado sem mensagens.
 - Hooks `useState`, `useEffect`, `useMemo` e `useCallback` com uso funcional.
-- Componentização, contexts, hooks e services separados.
-- Código sem uso de `any`.
-- Regras de segurança do Realtime Database versionadas em `firebase/database.rules.json`.
+- Componentizacao, contexts, hooks e services separados.
+- Codigo sem uso de `any`.
+- Regras de seguranca do Realtime Database versionadas em `firebase/database.rules.json`.
 
 ## Tecnologias
 
@@ -43,16 +43,16 @@ conversations/{conversationId}
 messages/{conversationId}/{messageId}
 ```
 
-## Regra de comunicação
+## Regra de comunicacao
 
-| Usuário A | Usuário B | Permitido |
+| Usuario A | Usuario B | Permitido |
 |---|---|---|
-| E-mail/Senha | Google | ✅ |
-| E-mail/Senha | Apple | ✅ |
-| E-mail/Senha | E-mail/Senha | ❌ |
-| Google | Google | ❌ |
-| Apple | Apple | ❌ |
-| Google | Apple | ❌ |
+| E-mail/Senha | Google | Sim |
+| E-mail/Senha | Apple | Sim |
+| E-mail/Senha | E-mail/Senha | Nao |
+| Google | Google | Nao |
+| Apple | Apple | Nao |
+| Google | Apple | Nao |
 
 ## Como executar
 
@@ -65,7 +65,7 @@ npm run typecheck
 npm start
 ```
 
-Para execução nativa:
+Para execucao nativa:
 
 ```bash
 npx expo prebuild --clean
@@ -74,11 +74,11 @@ npm run android
 npm run ios
 ```
 
-> O login Apple aparece somente no iOS quando o recurso está disponível.
+> O login Apple aparece somente no iOS quando o recurso esta disponivel.
 
 ## Google Sign-In no Android
 
-O app Android usa `com.guig3003.cp1chatfirebase` e inclui `google-services.json`. Para uma build Android de produção, cadastre no Firebase o SHA-1 do certificado usado pela build e baixe novamente o arquivo caso o OAuth Client Android ainda não esteja presente.
+O app Android usa `com.guig3003.cp1chatfirebase` e inclui `google-services.json`. Para uma build Android de producao, cadastre no Firebase o SHA-1 do certificado usado pela build e baixe novamente o arquivo caso o OAuth Client Android ainda nao esteja presente.
 
 ## Apple Sign-In
 
@@ -87,17 +87,41 @@ O app iOS usa `com.guig3003.cp1chatfirebase`, `usesAppleSignIn: true` e o plugin
 ## Telas
 
 1. Login/Cadastro com E-mail/Senha, Google e Apple.
-2. Usuários, exibindo somente contatos compatíveis.
-3. Chat com mensagens enviadas/recebidas diferenciadas e atualização em tempo real.
+2. Usuarios, exibindo somente contatos compativeis.
+3. Chat com mensagens enviadas/recebidas diferenciadas e atualizacao em tempo real.
 
-## Prints da aplicação
+## Prints da aplicacao
 
-Após executar em dispositivo/emulador, adicione os prints finais em `docs/screenshots/` e referencie-os neste README antes da entrega no Teams.
+Os prints abaixo demonstram o resultado final executado no emulador Android e validam os principais requisitos da entrega.
 
-## Segurança
+### Cadastro com E-mail/Senha
 
-As regras de produção estão em `firebase/database.rules.json`. Não utilize regras globais abertas (`.read: true` / `.write: true`).
+![Cadastro com e-mail e senha](docs/screenshots/cadastro-email-senha.jpeg)
+
+A tela de autenticacao permite criar conta usando nome, e-mail e senha. Esse fluxo atende ao requisito de Firebase Authentication com E-mail/Senha e prepara o usuario para ser registrado no Realtime Database.
+
+### Login com Google
+
+![Fluxo de login com Google](docs/screenshots/login-google-chrome.jpeg)
+
+O fluxo de login social abre a autenticacao do Google no navegador do Android. Esse print evidencia a integracao com provedor Google, conforme solicitado nos requisitos de autenticacao.
+
+### Lista de contatos compativeis
+
+![Lista sem contatos compativeis](docs/screenshots/contatos-sem-compativeis.jpeg)
+
+A tela de contatos mostra o usuario autenticado e informa que nao ha contato compativel no momento. O resultado esta correto porque a regra do app permite conversa apenas entre contas E-mail/Senha e Google ou Apple. Quando nao existe outro usuario com provedor compativel cadastrado no banco, a aplicacao exibe o estado vazio em vez de liberar conversas invalidas.
+
+## Resultado conforme os requisitos
+
+O projeto entrega um chat 1 para 1 com autenticacao pelo Firebase e persistencia no Firebase Realtime Database. A regra de comunicacao foi aplicada para que usuarios so consigam conversar quando a combinacao de provedores for valida: E-mail/Senha com Google ou E-mail/Senha com Apple.
+
+Na execucao mostrada pelos prints, o cadastro por E-mail/Senha funciona, o fluxo de Google Sign-In e iniciado corretamente e a listagem de contatos respeita a regra de compatibilidade. Como nao havia contato Google ou Apple disponivel para o usuario E-mail/Senha logado, o aplicativo exibiu o estado "Nenhum contato compativel", demonstrando o bloqueio das combinacoes nao permitidas.
+
+## Seguranca
+
+As regras de producao estao em `firebase/database.rules.json`. Nao utilize regras globais abertas (`.read: true` / `.write: true`).
 
 ## Entrega
 
-Repositório destinado à entrega do **CheckPoint 1 - Chat** via Microsoft Teams.
+Repositorio destinado a entrega do **CheckPoint 1 - Chat** via Microsoft Teams.
