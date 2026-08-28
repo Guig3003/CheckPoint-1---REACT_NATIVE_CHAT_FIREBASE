@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "expo": "^55.0.0",
-    "expo-apple-authentication": "~9.0.0",
-    "expo-auth-session": "^8.0.0",
+    "expo-apple-authentication": "~55.0.17",
+    "expo-auth-session": "~55.0.18",
     "expo-crypto": "~55.0.19",
     "expo-status-bar": "~55.0.0",
     "expo-web-browser": "~55.0.17",
