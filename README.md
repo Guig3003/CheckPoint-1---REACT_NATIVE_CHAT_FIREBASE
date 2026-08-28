@@ -209,7 +209,7 @@ Os arquivos de configuracao versionados sao:
 | E-mail/Senha | Google | Sim |
 | E-mail/Senha | Apple | Sim |
 | E-mail/Senha | E-mail/Senha | sim |
-| Google | Google | Nao |
+| Google | Google | Sim |
 | Apple | Apple | Nao |
 | Google | Apple | Nao |
 
