@@ -5,14 +5,51 @@
     "project_id": "cp-1-mobile",
     "storage_bucket": "cp-1-mobile.firebasestorage.app"
   },
-  "client": [{
-    "client_info": {
-      "mobilesdk_app_id": "1:566827232226:android:198ad395b41d5a6d7367bb",
-      "android_client_info": { "package_name": "com.guig3003.cp1chatfirebase" }
-    },
-    "oauth_client": [{ "client_id": "566827232226-mglqfg23k23mse2mf2jsitf3be87l3r2.apps.googleusercontent.com", "client_type": 3 }],
-    "api_key": [{ "current_key": "AIzaSyB7DzfZ9BbrBNrlgZCOdA30svZJSDPR0Nw" }],
-    "services": { "appinvite_service": { "other_platform_oauth_client": [{ "client_id": "566827232226-mglqfg23k23mse2mf2jsitf3be87l3r2.apps.googleusercontent.com", "client_type": 3 }] } }
-  }],
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566827232226:android:198ad395b41d5a6d7367bb",
+        "android_client_info": {
+          "package_name": "com.guig3003.cp1chatfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566827232226-7k9fliisvetj43vbc5u5khk6qi4gtoq2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.guig3003.cp1chatfirebase",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "566827232226-mglqfg23k23mse2mf2jsitf3be87l3r2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7DzfZ9BbrBNrlgZCOdA30svZJSDPR0Nw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566827232226-mglqfg23k23mse2mf2jsitf3be87l3r2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "566827232226-8haqkmrpdbhc5c4vvvse40g8qslm4a3p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.guig3003.cp1chatfirebase"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
   "configuration_version": "1"
 }
